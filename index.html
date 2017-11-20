@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+    
+    <title>Dimando - Fronted Asessment</title>
+    
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+</head>
+<body>
+    <header>
+        <video id="hdr_vid" autoplay loop muted>
+            <source src="videos/header.mp4" type="video/mp4">
+        </video>
+        <div id="vid_overlay">
+            <div class="overlay_wrapper">
+                <div class="overlay_conent">
+                    <h1>This is a title</h1>
+                    <a class="readmore" href="#">Read more</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="main_wrapper">
+        <div id="top-shapes">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <polygon class="shape-2" points="100 10 50 10 100 2" /> 
+                <polygon class="shape-1" points="0 10 100 10 0 0" />
+            </svg>
+        </div>
+
+        <div id="main">
+            <div class="content">
+                <h2>This is<br /><span class="bold">Another title</span></h2>
+                
+                <div class="button-group filter-button-group">
+                    <button class="active" data-filter="*">All</button>
+                    <button data-filter=".computer">Computer</button>
+                    <button data-filter=".paper">Pen & Paper</button>
+                </div>
+                
+                <div class="grid">
+                    <div class="grid-item computer">
+                        <img alt="Computer 1" src="images/computer1.jpg" />
+                        <div class="item-overlay">
+                            <h3>This is<br /><span class="bold">Some title</span></h3>
+                        </div>
+                    </div>
+                    <div class="grid-item paper">
+                        <img alt="Papaer 1" src="images/paper1.jpg" />
+                        <div class="item-overlay">
+                            <h3>This is<br /><span class="bold">Some title</span></h3>
+                        </div>
+                    </div>
+                    <div class="grid-item computer">
+                        <img alt="Computer 2" src="images/computer2.jpg" />
+                        <div class="item-overlay">
+                            <h3>This is<br /><span class="bold">Some title</span></h3>
+                        </div>
+                    </div>
+                    <div class="grid-item paper">
+                        <img alt="Paper 2" src="images/paper2.jpg" />
+                        <div class="item-overlay">
+                            <h3>This is<br /><span class="bold">Some title</span></h3>
+                        </div>
+                    </div>
+                    <div class="grid-item computer">
+                        <img alt="Computer 3" src="images/computer3.jpg" />
+                        <div class="item-overlay">
+                            <h3>This is<br /><span class="bold">Some title</span></h3>
+                        </div>
+                    </div>                    
+                    <div class="grid-item paper">
+                        <img alt="Paper 3" src="images/paper3.jpg" />
+                        <div class="item-overlay">
+                            <h3>This is<br /><span class="bold">Some title</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        $('.grid').isotope({
+            itemSelector: '.grid-item',
+            layoutMode: 'fitRows'
+        });
+        
+        $('.filter-button-group').on( 'click', 'button', function() {
+            var filterValue = $(this).attr('data-filter');
+            $('.grid').isotope({ filter: filterValue });
+            
+            $(this).parents('.filter-button-group').find('button').removeClass('active');
+            $(this).addClass('active');
+        });
+    </script>
+</body>
+</html>
